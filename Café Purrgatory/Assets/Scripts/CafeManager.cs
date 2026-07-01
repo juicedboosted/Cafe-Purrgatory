@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class CafeManager : MonoBehaviour
 {
+    //money
+    //reputation
+    //day??
+
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

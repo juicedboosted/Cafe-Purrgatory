@@ -31,21 +31,23 @@ public class MatchingSystem : MonoBehaviour
         m_resultText.text = "Selected customer: " + _customer.name;
     }
 
-    public void TryMatchCatWithCustomer(CustomerSoul _customer, CatSoul _cat)
+    public void TryMatchCatWithCustomer()
     {
         if (m_selectedCat == null || m_selectedCustomer == null)
         {
             m_resultText.text = "Select a customer and a cat to match.";
             return;
         }
-        if (_customer.m_preferredCatPersonality == _cat.m_catPersonality)
+        if (m_selectedCat.m_catPersonality == m_selectedCustomer.m_preferredCatPersonality)
         {
-            _cat.m_catHappiness += 10;
-            _customer.m_happiness += 10;
+            m_selectedCat.m_catHappiness += 10;
+            m_selectedCustomer.m_happiness += 10;
+            m_resultText.text = m_selectedCustomer.m_customerName + " and " + m_selectedCat.m_catName + " are a great match!";
         }
         else
         {
-            _customer.m_patience -= 20;
+            m_selectedCustomer.m_patience -= 20;
+            m_resultText.text = m_selectedCustomer.m_customerName + " and " + m_selectedCat.m_catName + " don't seem to connect...";
         }
     }
 }
